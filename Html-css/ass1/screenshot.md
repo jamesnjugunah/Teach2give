@@ -1,1 +1,1 @@
-![preview](Screenshot%202025-02-03%20151958.jpg)
+![preview](preview.jpg)
