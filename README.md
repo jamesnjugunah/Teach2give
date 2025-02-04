@@ -1,5 +1,8 @@
 # Teach2give
-assignment1 
+# assignment1 
+
 ![preview](Html-css/ass1/preview.jpg)
-assignment2
+
+# assignment2
+
 ![preview](Html-css/ass2/images/preview.jpg)
