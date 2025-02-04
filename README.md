@@ -9,4 +9,4 @@
 
 # assignment3
 
-![preview](Html-css/ass2/images/preview.jpg)
+![preview](Html-css/ass3/preview.jpg)
