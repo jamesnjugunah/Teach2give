@@ -6,3 +6,7 @@
 # assignment2
 
 ![preview](Html-css/ass2/images/preview.jpg)
+
+# assignment3
+
+![preview](Html-css/ass2/images/preview.jpg)
