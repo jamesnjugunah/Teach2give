@@ -72,13 +72,13 @@
         .content {
             display: flex;
             /* justify-content: space-between; */
-            padding-left: 20px;
+            padding-left: 100px;
             padding-right: 20px;
             padding-top: 20px;
             
         }
         .left {
-            width: 55%;
+            width: 50%;
             height: 100%;
             background-color: rgb(239, 250, 252);
             border-radius: 10px;
@@ -121,7 +121,7 @@
             background-color: rgb(209, 204, 204);
         }
         .details {
-            padding-left:120px;
+            padding-left:70px;
             
         }
         .details h3 {
@@ -136,54 +136,116 @@
             display: flex;
             margin-top: 20px;
             justify-content:flex-end;
-            padding-right: 22%;
+            padding-right: 13%;
             margin-bottom: 70px;
-        }
-        .btn button {        
-            margin-right: 10px;
-            height:50px;
-            padding-left:20px;
-            padding-right: 20px;
-            border-radius: 10px;
-            background-color: transparent;
-            border:0px;
-            
-            
-        }
-        .btn button:hover {
-            background-color: blue;
-            border:1px solid black;
-            color:white;
-        }
+        }       
         .footer {
             display: flex;
             margin-top: 20px;
             justify-content:flex-end;
-            padding-right: 19%;
+            padding-right: 12%;
             margin-bottom: 10px;
         }
-        .footer button {        
+        .reg{
             margin-right: 10px;
             height:50px;
             padding-left:20px;
             padding-right: 20px;
             border-radius: 10px;
-            background-color: transparent;
             border:0px;
-            
-            
-        }
-        .footer button:hover {
-            background-color: blue;
-            border:1px solid black;
-            color:white;
-        }
+            background-color: transparent;
 
+        }
+        .log {
+            margin-right: 10px;
+            height:50px;
+            padding-left:20px;
+            padding-right: 20px;
+            border-radius: 10px;
+            background-color: blue;
+            color:white;
+            border:1px solid black;
+        }
         .right {
-            width: 40%;
+            width: 32%;
             height: 100%;
             background-color: rgb(239, 250, 252);
             border-radius: 10px;
+            padding-left:50px;
+        }
+        .order {
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+        .order img {
+            width: 340px;
+            height: 30%;
+            
+        }
+        .detail{
+            display:flex;
+
+        }
+        .tent {
+            margin-right:40px;
+        }
+        .buttn {
+            display: flex;
+            line-height: -0px;
+        }
+        .buttn button {
+            width: 30px;
+            height: 30px;
+            border-radius:5px;
+            background-color: rgb(201, 201, 201);
+            color:black;
+            border:0px;
+        }
+        .card {
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .card p {
+            /* color:grey; */
+        }
+        .card input {
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid rgb(253, 252, 252);
+            background-color: rgb(209, 204, 204);
+            margin-right: 60px;
+        }
+        .card button {
+            width:80px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: transparent;
+            border:2px solid rgb(109, 109, 243);
+            color: rgb(109, 109, 243);
+            margin-left: 10px;
+        }
+    
+        .cont {
+            display:flex;
+            width:100%;
+            color: black;
+            margin-top: 10px;
+        }
+        .leftie {
+            margin-right: 230px;
+            align-items: right;
+            justify-items: left;
+
+        }
+        .leftie p {
+            margin-bottom: 10px;
+        }
+        .rightie {
+            justify-content: flex-end;
+            justify-items: right;
         }
 
     </style>
@@ -234,24 +296,52 @@
                         <input type="password" id="password" name="password" required><br><br>
                     </form>
                     <div class="btn">
-                        <button>Register for account</button>
-                        <button>Login</button>
+                        <button class="reg">Register for account</button>
+                        <button class="log">Login</button>
 
                     </div>
 
                 </div><hr>
                 <div class="footer">
-                    <button>Cancel order</button>
-                    <button>Shipping details</button>
+                    <button class="reg">Cancel order</button>
+                    <button class="log">Shipping details</button>
 
                 </div>
 
             </div>
             <div class="right">
                 <div class="order">
-                        <p>hello world</p>
+                        <h4>Order Summary</h4>
+                        <img src="./images/headphones.jpg" alt="">
+                        <div class="detail">
+                            <div class="tent">
+                                <p>Sony wireless headphones</p>                            
+                                <p>€320.45</p>
+                            </div>
+                            <div  class="buttn" style="display: flex; align-items: center;">
+                                <button style="margin-right: 10px;">-</button>
+                                <p style="margin: 0 10px;">1</p>
+                                <button style="margin-left: 10px;">+</button>
+                            </div>
+                        </div>
                 </div>
                 <div class="card">
+                    <p style="color:grey">Gift Card / Discount code</p>
+                    <input type="text" name="card" id="card"><span><button>Apply</button></span>
+                    <div class="cont">
+                        <div class="leftie">
+                            <p style="color:grey">Subtotal</p>
+                            <p style="color:grey">Discount</p>
+                            <p style="color:grey">Shipping</p>
+                            <p>Total</p>
+                        </div>
+                        <div class="rightie">
+                            <p>€320.45</p>
+                            <p>€0.00</p>
+                            <p style="color:rgb(135, 135, 248);">Free</p>
+                            <p style="font-weight: bold;">€325.45</p>
+                    </div>
+                    </table>
 
                 </div>
 
