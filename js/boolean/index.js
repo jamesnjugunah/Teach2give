@@ -15,6 +15,8 @@ const hashedPassword = bcrypt.hashSync(password,10);
 const stardandMFA = "1234";
 const balance = 20000;
 const dailyLimit = 5000;
+ 
+console.log(hashedPassword);
 
 function verifyPassword(password){
     if (bcrypt.compareSync(password, hashedPassword)){
@@ -55,3 +57,4 @@ function processWithdrawal(password, MFA, amount){
         console.log("Withdrawal failed");
     }
 }
+console.log(processWithdrawal("Jimmy22kar?", "1234", 15000));
