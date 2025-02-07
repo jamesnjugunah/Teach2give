@@ -9,18 +9,24 @@
         //3. check balance
         //4. check daily limit
 import bcrypt from 'bcryptjs';
+import readline from 'readline';
 
 const password = "Jimmy22kar?";
 const hashedPassword = bcrypt.hashSync(password,10);
 const stardandMFA = "1234";
 const balance = 20000;
 const dailyLimit = 5000;
+let inputPassword;
+let inputMFA;
+let amount;
  
-console.log(hashedPassword);
+// console.log(hashedPassword);
 
-function verifyPassword(password){
-    if (bcrypt.compareSync(password, hashedPassword)){
+function verifyPassword(inputPassword){
+
+    if (bcrypt.compareSync(inputPassword, hashedPassword)){
         return true;
+
     }else {
         return false;
     }
@@ -41,8 +47,8 @@ function checkDailyLimit(dailyLimit){
     return dailyLimit;
 }
 
-function processWithdrawal(password, MFA, amount){
-    if(verifyPassword(password) && verifyMFA(MFA) ) {
+function processWithdrawal(inputPassword, inputMFA, amount){
+    if(verifyPassword(inputPassword) && verifyMFA(inputMFA) ) {
         console.log("Registration successfull");
         if(amount <= checkBalance(balance)){
             if(amount <= checkDailyLimit(dailyLimit)){
@@ -57,4 +63,18 @@ function processWithdrawal(password, MFA, amount){
         console.log("Withdrawal failed");
     }
 }
-console.log(processWithdrawal("Jimmy22kar?", "1234", 15000));
+
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter your password: ', (inputPassword) => {
+    rl.question('Enter your MFA code: ', (inputMFA) => {
+        rl.question('Enter the amount to withdraw: ', (amount) => {
+            processWithdrawal(password, inputMFA, parseFloat(amount));
+            rl.close();
+        });
+    });
+});
