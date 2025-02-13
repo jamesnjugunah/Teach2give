@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("db.json")  // Fetch data from JSON Server
+    fetch("http://localhost:5000/products")  // Fetch data from JSON Server
         .then(response => response.json())
         .then(products => {
             const productList = document.getElementById("product-list");
