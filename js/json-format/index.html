@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding:30px;
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <div id="product-list"></div>
@@ -30,8 +45,7 @@
                     });
                 })
                 .catch(error => console.error("Error fetching products:", error));
-    });
+        });
     </script>
-
 </body>
 </html>
