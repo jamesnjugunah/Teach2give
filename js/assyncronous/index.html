@@ -10,6 +10,19 @@
   <div class="container">
     <h1>Book Library</h1>
 
+    <!-- Cart Icon (Opens Modal) -->
+    <div class="contain">
+      <img src="./carts.png" alt="cart image" onclick="openModal()">
+      <div class="modal" id="modal">
+        <span id="close-btn" onclick="closeUserModal()">&times;</span>
+        <div class="modal_content" id="modal_content">
+          <h2>Your Cart</h2><hr>
+          <div id="cartList"></div>
+          <h3 id="totalAmount">Total: $0.00</h3>
+        </div>
+      </div>
+    </div>
+
     <!-- Search Bar -->
     <div class="input">
       <div class="search-container">
@@ -33,5 +46,14 @@
   </div>
 
   <script src="index.js"></script>
+  <script>
+    function openModal() {
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function closeUserModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
