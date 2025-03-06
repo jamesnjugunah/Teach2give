@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Book Library</h1>
+
+    <!-- Cart Icon (Opens Modal) -->
+    <div class="contain">
+      <img src="./carts.png" alt="cart image" onclick="openModal()">
+      <div class="modal" id="modal">
+        <span id="close-btn" onclick="closeUserModal()">&times;</span>
+        <div class="modal_content" id="modal_content">
+          <h2>Your Cart</h2><hr>
+          <div id="cartList"></div>
+          <h3 id="totalAmount">Total: $0.00</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="input">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by title, genre, or year">
+        <button id="searchButton">Search</button>
+      </div>
+  
+      <!-- Sorting Options -->
+      <div class="sort-container">
+        <select id="sortCriteria">
+          <option value="title-asc">Title (A-Z)</option>
+          <option value="title-desc">Title (Z-A)</option>
+          <option value="year-asc">Year (Oldest first)</option>
+          <option value="year-desc">Year (Newest first)</option>
+          <option value="pages-asc">Pages (Fewest first)</option>
+          <option value="pages-desc">Pages (Most first)</option>
+        </select>
+        <button id="sortButton">Sort</button>
+      </div>
+    </div>
+
+    <!-- Book List -->
+    <div id="bookList" class="book-list"></div>
+  </div>
+
+  <script src="./dist/index.js"></script>
+  <script>
+    function openModal() {
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function closeUserModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
