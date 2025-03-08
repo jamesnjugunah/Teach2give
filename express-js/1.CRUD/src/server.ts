@@ -60,7 +60,7 @@ try{
 }
 
 });
-app.put('/api/v1/users/:user_id', async (req:Request, res:Response) => {
+app.patch('/api/v1/users/:user_id', async (req:Request, res:Response) => {
     try {
         const {user_id} = req.params
         const {name, email, phone} = req.body
@@ -73,7 +73,7 @@ app.put('/api/v1/users/:user_id', async (req:Request, res:Response) => {
             return
         }
         const results = await pool.query("UPDATE users SET name=$1, email=$2, phone=$3 WHERE user_id=$4 RETURNING *", [name, email, phone, user_id])
-        res.json({ message: "User updated", user: results.rows[0] });
+        res.status(404).json({ message: "User updated", user: results.rows[0] });
 
     } catch (error) {
         res.status(500).json({
@@ -81,7 +81,7 @@ app.put('/api/v1/users/:user_id', async (req:Request, res:Response) => {
         })
         
     }
-})
+});
 
 // Start the server
 app.listen(PORT, () => {
