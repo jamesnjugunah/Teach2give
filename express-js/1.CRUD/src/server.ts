@@ -82,6 +82,28 @@ app.patch('/api/v1/users/:user_id', async (req:Request, res:Response) => {
         
     }
 });
+app.put('/api/v1/users/:user_id', async (req:Request, res:Response) => {
+    try {
+        const {user_id} = req.params
+        const {name, email, phone} = req.body
+
+        const checkUser = await pool.query("SELECT * FROM users WHERE user_id = $1", [user_id])
+        if(checkUser.rows.length === 0){
+            res.status(404).json({
+                message: "user does not exist"
+            })
+            return
+        }
+        const results = await pool.query("UPDATE users SET name=$1, email=$2, phone=$3 WHERE user_id=$4 RETURNING *", [name, email, phone, user_id])
+        res.status(404).json({ message: "User updated", user: results.rows[0] });
+
+    } catch (error) {
+        res.status(500).json({
+            message: "Internal server error"
+        })
+        
+    }
+});
 
 // Start the server
 app.listen(PORT, () => {
