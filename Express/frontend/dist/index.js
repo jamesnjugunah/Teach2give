@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isNumeric && Number(searchQuery) > 1000) {
                     queryParams.push(`year=${encodeURIComponent(searchQuery)}`);
                 }
-                else if (["fiction", "non-fiction", "fantasy", "sci-fi", "romance", "mystery", "biography", "history"].includes(searchQuery.toLowerCase())) {
+                else if (["fiction", "dystopian", "fantasy", "adventure", "romance", "mystery", "epic poetry", "historical fiction"].includes(searchQuery.toLowerCase())) {
                     queryParams.push(`genre=${encodeURIComponent(searchQuery)}`);
                 }
                 else {

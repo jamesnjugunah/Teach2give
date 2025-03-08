@@ -36,14 +36,13 @@ body {
   .modal {
     width:20%;
     height:auto;
-    background-color: #000000;
     display: none; /* Hidden by default */
     position: fixed;
     top: 40PX;
     right: 60px;
     width: 30%;
     height: auto;
-    background-color: rgba(248, 242, 242, 0.5);
+    background-color: white;
     z-index: 1000;
   }
   #close_btn {
