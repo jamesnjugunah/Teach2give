@@ -1,4 +1,4 @@
-### **📚 Overview of the Library Application** (Using **PostgreSQL** & **TypeScript**)  
+### **📚 Overview of the Library Application** 
 
 The **Library Application** is a web-based system that allows users to:  
 ✔ **Browse books**  
@@ -66,4 +66,4 @@ The **books table** in **PostgreSQL** includes:
 - 🔹 **Database Optimization**: Add indexing for faster queries.  
 - 🔹 **Logging System**: Track borrowing and return history.  
 
-Would you like a **TypeScript-based API** to handle book borrowing and purchasing? 🚀
+ 🚀
