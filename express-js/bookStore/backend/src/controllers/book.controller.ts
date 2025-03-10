@@ -18,8 +18,8 @@ export const getAllBooks = async (req: Request, res: Response) => {
 //Adding book to the cart
 export const addBook = async (req:Request, res:Response) => {
     try {
-        const { title, author, price } = req.body;
-        const results = await pool.query("INSERT INTO books (title, author, price) VALUES ($1, $2, $3) RETURNING *", [title, author, price]);
+        const { title, price } = req.body;
+        const results = await pool.query("INSERT INTO books (title, price) VALUES ($1, $2) RETURNING *", [title, price]);
         res.status(201).json(results.rows);
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error" });
@@ -30,8 +30,8 @@ export const addBook = async (req:Request, res:Response) => {
 export const updateBook = async (req:Request, res:Response) => {
     try {
         const { id } = req.params;
-        const { title, author, price } = req.body;
-        const results = await pool.query("UPDATE books SET title = $1, author = $2, price = $3 WHERE id = $4 RETURNING *", [title, author, price, id]);
+        const { title, price } = req.body;
+        const results = await pool.query("UPDATE books SET title = $1, price = $3 WHERE id = $4 RETURNING *", [title, price, id]);
         res.status(200).json(results.rows);
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error" });
@@ -73,7 +73,8 @@ export const returnBook = async (req: Request, res: Response) => {
 
         // Check if the book was found
         if (updateBorrowedBook.rowCount === 0) {
-            return res.status(404).json({ message: "Borrowed book not found" });
+            res.status(404).json({ message: "Borrowed book not found" });
+            return;
         }
 
         const borrowedBook = updateBorrowedBook.rows[0];

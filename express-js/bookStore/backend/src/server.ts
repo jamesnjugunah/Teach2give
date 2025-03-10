@@ -1,5 +1,7 @@
 import express, {  Request, Response } from 'express';
 import cors from 'cors';
+import userRoutes from './routes/auth.routes';
+import bookRoutes from './routes/book.routes';
 import dotenv from 'dotenv';
 
 
@@ -11,13 +13,23 @@ const PORT = process.env.PORT; // Set a default port
 console.log(`Starting server on PORT: ${PORT}`);
 
 // Middleware
-app.use(express.json());
+
 app.use(cors({
-    origin: "http://127.0.0.1:5500/bookStore/frontend/index.html",  // Allow all origins, change to specific URL if needed
+    origin: "*",  // Allow all origins, change to specific URL if needed
     methods: ["GET", "PUT", "POST", "DELETE"],
     credentials: true
 }));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
+app.use('/api/v1/auth', userRoutes);
+app.use('/api/v1/books', bookRoutes);
+
+console.log("Loading routes...");
+console.log("User Routes Loaded:", !!userRoutes);
+console.log("Book Routes Loaded:", !!bookRoutes);
+
 
 // Start the server
 app.listen(PORT, () => {

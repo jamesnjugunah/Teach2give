@@ -9,11 +9,11 @@ import { returnBook } from '../controllers/book.controller';
 const router = Router();
 
 
-router.get('/books', getAllBooks);
-router.post('/books', addBook);
-router.put('/books/:id', updateBook);
+router.get('/getBooks', getAllBooks);
+router.post('/addBooks', addBook);
+router.put('/updateBook:id', updateBook);
 router.post('/borrow', borrowBook);
-router.get('/borrowed_books', getBorrowedBooks);
+router.get('/borrowedBook', getBorrowedBooks);
 router.put('/return/:id', returnBook);
 
 export default router;
