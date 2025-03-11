@@ -28,7 +28,7 @@ exports.getAllBooks = getAllBooks;
 //Adding book to the cart
 const addBook = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { title, author, price } = req.body;
+        const { title, price } = req.body;
         const results = yield db_config_1.default.query("INSERT INTO books (title, price) VALUES ($1, $2) RETURNING *", [title, price]);
         res.status(201).json(results.rows);
     }
@@ -41,8 +41,8 @@ exports.addBook = addBook;
 const updateBook = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        const { title, author, price } = req.body;
-        const results = yield db_config_1.default.query("UPDATE books SET title = $1, author = $2, price = $3 WHERE id = $4 RETURNING *", [title, author, price, id]);
+        const { title, price } = req.body;
+        const results = yield db_config_1.default.query("UPDATE books SET title = $1, price = $3 WHERE id = $4 RETURNING *", [title, price, id]);
         res.status(200).json(results.rows);
     }
     catch (error) {

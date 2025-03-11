@@ -1,7 +1,7 @@
 
 import { registerUser, loginUser } from '../services/api';
 
-document.getElementById('registerForm').addEventListener('submit', async (e) => {
+document.getElementById('auth-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const userData = {
