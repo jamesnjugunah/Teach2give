@@ -1,0 +1,48 @@
+<div class="todo-container">
+  <h1>{{ title }}</h1>
+  
+  <!-- Add Todo Form -->
+  <div class="todo-form">
+    <input 
+      type="text" 
+      placeholder="Add a new todo..." 
+      [(ngModel)]="newTodoText"
+      (keyup.enter)="addTodo()"
+    >
+    <button (click)="addTodo()">Add</button>
+  </div>
+  
+  <!-- Todo List -->
+  <div class="todo-list">
+    <div *ngIf="todos.length === 0" class="empty-message">
+      No todos yet. Add one above!
+    </div>
+    
+    <div *ngFor="let todo of todos" class="todo-item" [class.completed]="todo.completed">
+      <!-- View Mode -->
+      <div *ngIf="!todo.editing" class="todo-view">
+        <input 
+          type="checkbox" 
+          [checked]="todo.completed"
+          (change)="toggleComplete(todo)"
+        >
+        <span class="todo-title">{{ todo.title }}</span>
+        <div class="todo-actions">
+          <button class="edit-btn" (click)="startEdit(todo)">Edit</button>
+          <button class="delete-btn" (click)="deleteTodo(todo.id)">Delete</button>
+        </div>
+      </div>
+      
+      <!-- Edit Mode -->
+      <div *ngIf="todo.editing" class="todo-edit">
+        <input 
+          type="text" 
+          [(ngModel)]="editText"
+          (keyup.enter)="saveEdit(todo)"
+        >
+        <button (click)="saveEdit(todo)">Save</button>
+        <button (click)="cancelEdit(todo)">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
